@@ -60,7 +60,7 @@ function App() {
 function Header() {
   return (
     <header className="header footer">
-      <h1>Fast Pizza Co.</h1>;
+      <h1>Fast Pizza Co.</h1>
     </header>
   );
 }
@@ -108,10 +108,7 @@ function Footer() {
   return (
     <footer className="footer">
       {isOpen ? (
-        <div className="order">
-          <p>We're open until {CloseHour}:00. Come visit us or order online.</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order />
       ) : (
         <p>
           We're happy to welcome you between {OpenHour}:00 and {CloseHour}:00.
@@ -120,7 +117,16 @@ function Footer() {
     </footer>
   );
 }
+function Order() {
+  const CloseHour = 22;
 
+  return (
+    <div className="order">
+      <p>We're open until {CloseHour}:00. Come visit us or order online.</p>
+      <button className="btn">Order</button>
+    </div>
+  );
+}
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
